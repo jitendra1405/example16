@@ -1,0 +1,29 @@
+<html>
+ <head>
+  <title>Employees</title>
+ </head>
+ <body>
+  <table>
+   <thead>
+    <tr>
+     <th>First Name</th>
+     
+    </tr>
+   </thead>
+   <tbody>
+<?php
+$query = "select name "
+    . "from contact.contact";
+$result = $db->query($query);
+while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+    echo "<tr>";
+    echo "<td>" . $row["employee_id"] . "</td>";
+    echo "<td>" . htmlspecialchars($row["name"]) . "</td>";
+    echo "</tr>";
+}
+$result->closeCursor();
+?>
+   </tbody>
+  </table>
+ </body>
+</html>
